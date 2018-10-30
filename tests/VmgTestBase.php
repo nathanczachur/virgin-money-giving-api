@@ -3,10 +3,10 @@
 namespace Tests;
 
 use GuzzleHttp\Client;
-use GuzzleHttp\Psr7\Response;
-use PHPUnit\Framework\TestCase;
 use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
+use GuzzleHttp\Psr7\Response;
+use PHPUnit\Framework\TestCase;
 
 class VmgTestBase extends TestCase
 {

@@ -4,8 +4,8 @@ namespace VirginMoneyGivingAPI;
 
 use GuzzleHttp\Client;
 
-
-interface VmgConnectorInterface {
+interface VmgConnectorInterface
+{
     public function setApiKey(string $apiKey);
 
     public function getApiKey();

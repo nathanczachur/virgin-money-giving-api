@@ -35,11 +35,10 @@ class PageCreateResponse extends AbstractCreateResponse
      *
      * @return PageCreateResponse
      */
-    public function setPageURI(string $pageURI): PageCreateResponse
+    public function setPageURI(string $pageURI): self
     {
         $this->pageURI = $pageURI;
+
         return $this;
     }
-
-
 }

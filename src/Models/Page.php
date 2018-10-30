@@ -6,8 +6,6 @@ namespace VirginMoneyGivingAPI\Models;
  * Class Page.
  *
  * The Fundraiser page as defined here: https://developer.virginmoneygiving.com/docs/read/Create_Fundraiser_page
- *
- * @package VirginMoneyGivingAPI\Models
  */
 class Page extends AbstractModel
 {
@@ -89,9 +87,10 @@ class Page extends AbstractModel
      *
      * @return Page
      */
-    public function setPageTitle(string $pageTitle): Page
+    public function setPageTitle(string $pageTitle): self
     {
         $this->pageTitle = $this->convertAccentedCharacters($pageTitle);
+
         return $this;
     }
 
@@ -108,9 +107,10 @@ class Page extends AbstractModel
      *
      * @return Page
      */
-    public function setEventResourceId(string $eventResourceId): Page
+    public function setEventResourceId(string $eventResourceId): self
     {
         $this->eventResourceId = $eventResourceId;
+
         return $this;
     }
 
@@ -125,16 +125,18 @@ class Page extends AbstractModel
     /**
      * @param $fundraisingDate
      *
-     * @return \VirginMoneyGivingAPI\Models\Page
      * @throws \Exception
+     *
+     * @return \VirginMoneyGivingAPI\Models\Page
      */
-    public function setFundraisingDate($fundraisingDate): Page
+    public function setFundraisingDate($fundraisingDate): self
     {
         if (!empty($fundraisingDate) &&
-            !preg_match("/^[0-9]{4}(0[1-9]|1[0-2])(0[1-9]|[1-2][0-9]|3[0-1])$/", $fundraisingDate)) {
+            !preg_match('/^[0-9]{4}(0[1-9]|1[0-2])(0[1-9]|[1-2][0-9]|3[0-1])$/', $fundraisingDate)) {
             throw new \Exception('Fundraising date must be in YYYYMMDD format.');
         }
         $this->fundraisingDate = $fundraisingDate;
+
         return $this;
     }
 
@@ -149,15 +151,17 @@ class Page extends AbstractModel
     /**
      * @param string $teamPageIndicator
      *
-     * @return \VirginMoneyGivingAPI\Models\Page
      * @throws \Exception
+     *
+     * @return \VirginMoneyGivingAPI\Models\Page
      */
-    public function setTeamPageIndicator(string $teamPageIndicator): Page
+    public function setTeamPageIndicator(string $teamPageIndicator): self
     {
         if ($teamPageIndicator != 'N' && $teamPageIndicator != 'Y') {
             throw new \Exception('Team page indicator must be Y/N.');
         }
         $this->teamPageIndicator = $teamPageIndicator;
+
         return $this;
     }
 
@@ -174,9 +178,10 @@ class Page extends AbstractModel
      *
      * @return Page
      */
-    public function setTeamName($teamName): Page
+    public function setTeamName($teamName): self
     {
         $this->teamName = ($teamName) ? $this->convertAccentedCharacters($teamName) : null;
+
         return $this;
     }
 
@@ -193,9 +198,10 @@ class Page extends AbstractModel
      *
      * @return Page
      */
-    public function setTeamUrl($teamUrl): Page
+    public function setTeamUrl($teamUrl): self
     {
         $this->teamUrl = ($teamUrl) ? $teamUrl : null;
+
         return $this;
     }
 
@@ -212,9 +218,10 @@ class Page extends AbstractModel
      *
      * @return Page
      */
-    public function setActivityCode($activityCode): Page
+    public function setActivityCode($activityCode): self
     {
         $this->activityCode = ($activityCode) ? $activityCode : null;
+
         return $this;
     }
 
@@ -231,9 +238,10 @@ class Page extends AbstractModel
      *
      * @return Page
      */
-    public function setActivityDescription($activityDescription): Page
+    public function setActivityDescription($activityDescription): self
     {
         $this->activityDescription = ($activityDescription) ? $this->convertAccentedCharacters($activityDescription) : null;
+
         return $this;
     }
 
@@ -248,15 +256,17 @@ class Page extends AbstractModel
     /**
      * @param $charityContributionIndicator
      *
-     * @return \VirginMoneyGivingAPI\Models\Page
      * @throws \Exception
+     *
+     * @return \VirginMoneyGivingAPI\Models\Page
      */
-    public function setCharityContributionIndicator($charityContributionIndicator): Page
+    public function setCharityContributionIndicator($charityContributionIndicator): self
     {
         if ($charityContributionIndicator != 'N' && $charityContributionIndicator != 'Y') {
             throw new \Exception('Charity contribution indicator must be Y/N.');
         }
         $this->charityContributionIndicator = $charityContributionIndicator;
+
         return $this;
     }
 
@@ -273,9 +283,10 @@ class Page extends AbstractModel
      *
      * @return Page
      */
-    public function setPostEventFundraisingInterval(int $postEventFundraisingInterval): Page
+    public function setPostEventFundraisingInterval(int $postEventFundraisingInterval): self
     {
         $this->postEventFundraisingInterval = $postEventFundraisingInterval;
+
         return $this;
     }
 
@@ -292,9 +303,10 @@ class Page extends AbstractModel
      *
      * @return Page
      */
-    public function setFundraisingTarget(float $fundraisingTarget): Page
+    public function setFundraisingTarget(float $fundraisingTarget): self
     {
         $this->fundraisingTarget = $fundraisingTarget;
+
         return $this;
     }
 
@@ -311,9 +323,10 @@ class Page extends AbstractModel
      *
      * @return Page
      */
-    public function setCharityResourceId(string $charityResourceId): Page
+    public function setCharityResourceId(string $charityResourceId): self
     {
         $this->charityResourceId = $charityResourceId;
+
         return $this;
     }
 
@@ -330,9 +343,10 @@ class Page extends AbstractModel
      *
      * @return Page
      */
-    public function setCharitySplits(array $charitySplits): Page
+    public function setCharitySplits(array $charitySplits): self
     {
         $this->charitySplits = $charitySplits;
+
         return $this;
     }
 }

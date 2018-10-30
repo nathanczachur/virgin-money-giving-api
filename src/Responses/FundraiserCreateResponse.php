@@ -2,7 +2,6 @@
 
 namespace VirginMoneyGivingAPI\Responses;
 
-
 use Psr\Http\Message\ResponseInterface;
 use VirginMoneyGivingAPI\Models\Fundraiser;
 
@@ -57,9 +56,10 @@ class FundraiserCreateResponse extends AbstractCreateResponse
      *
      * @return FundraiserCreateResponse
      */
-    public function setAccessToken($accessToken): FundraiserCreateResponse
+    public function setAccessToken($accessToken): self
     {
         $this->accessToken = ($accessToken) ? $accessToken : null;
+
         return $this;
     }
 
@@ -76,9 +76,10 @@ class FundraiserCreateResponse extends AbstractCreateResponse
      *
      * @return FundraiserCreateResponse
      */
-    public function setCustomerExists(bool $customerExists): FundraiserCreateResponse
+    public function setCustomerExists(bool $customerExists): self
     {
         $this->customerExists = $customerExists;
+
         return $this;
     }
 
@@ -95,10 +96,10 @@ class FundraiserCreateResponse extends AbstractCreateResponse
      *
      * @return FundraiserCreateResponse
      */
-    public function setPersonalUrl(string $personalUrl): FundraiserCreateResponse
+    public function setPersonalUrl(string $personalUrl): self
     {
         $this->personalUrl = $personalUrl;
+
         return $this;
     }
-
 }

@@ -6,7 +6,6 @@ use Psr\Http\Message\ResponseInterface;
 
 class FundraiserSearchResponse
 {
-
     /**
      * @var array
      */
@@ -38,9 +37,10 @@ class FundraiserSearchResponse
      *
      * @return FundraiserSearchResponse
      */
-    public function setResults(array $results): FundraiserSearchResponse
+    public function setResults(array $results): self
     {
         $this->results = $results;
+
         return $this;
     }
 
@@ -57,14 +57,15 @@ class FundraiserSearchResponse
      *
      * @return FundraiserSearchResponse
      */
-    public function setMessage($message): FundraiserSearchResponse
+    public function setMessage($message): self
     {
         $this->message = ($message) ? $message : null;
+
         return $this;
     }
 
     public function hasMatches() : bool
     {
-        return (!empty($this->getResults()));
+        return !empty($this->getResults());
     }
 }

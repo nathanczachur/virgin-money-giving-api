@@ -2,6 +2,6 @@
 
 namespace VirginMoneyGivingAPI\Exceptions;
 
-class ConnectorException extends AbstractConnectorException {
-
+class ConnectorException extends AbstractConnectorException
+{
 }

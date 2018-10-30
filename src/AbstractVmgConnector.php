@@ -3,15 +3,13 @@
 namespace VirginMoneyGivingAPI;
 
 use GuzzleHttp\Client;
-use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\RequestException;
 use VirginMoneyGivingAPI\Exceptions\ConnectorException;
-use function GuzzleHttp\json_decode;
 
 abstract class AbstractVmgConnector implements VmgConnectorInterface
 {
     /**
-     * Sandbox Endpoint URL
+     * Sandbox Endpoint URL.
      *
      * The VMG API has a sandbox environment in which to test. Contact your
      * account manager to get test API credentials.
@@ -88,7 +86,7 @@ abstract class AbstractVmgConnector implements VmgConnectorInterface
     /**
      * Gets the test mode.
      *
-     * @return boolean
+     * @return bool
      */
     public function getTestMode() : bool
     {
@@ -127,10 +125,11 @@ abstract class AbstractVmgConnector implements VmgConnectorInterface
     /**
      * @param $path
      * @param string $method
-     * @param array $options
+     * @param array  $options
+     *
+     * @throws \VirginMoneyGivingAPI\Exceptions\ConnectorException
      *
      * @return \Psr\Http\Message\ResponseInterface
-     * @throws \VirginMoneyGivingAPI\Exceptions\ConnectorException
      */
     public function request($path, $method = 'GET', $options = [])
     {
@@ -140,7 +139,7 @@ abstract class AbstractVmgConnector implements VmgConnectorInterface
         }
 
         // Set up the request URL based on the request path.
-        $url = $this->getEndpoint() . $path . 'api_key=' . $this->getApiKey();
+        $url = $this->getEndpoint().$path.'api_key='.$this->getApiKey();
 
         // Give the request a go and catch the errors we want to handle.
         try {

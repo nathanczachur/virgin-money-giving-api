@@ -2,10 +2,10 @@
 
 namespace Tests\Connectors;
 
+use GuzzleHttp\Psr7\Response;
 use Tests\Connectors\ConcreteConnector as VmgConnector;
 use Tests\VmgTestBase;
 use VirginMoneyGivingAPI\Exceptions\ConnectorException;
-use GuzzleHttp\Psr7\Response;
 
 class AbstractVmgConnectorTest extends VmgTestBase
 {
