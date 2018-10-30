@@ -11,8 +11,6 @@ use function Rap2hpoutre\ConvertAccentCharacters\convert_accent_characters;
  * page create API. So this needs refactoring.
  *
  * Class AbstractModel
- *
- * @package VirginMoneyGivingAPI\Models
  */
 abstract class AbstractModel implements ModelInterface
 {
@@ -21,9 +19,10 @@ abstract class AbstractModel implements ModelInterface
      */
     protected $resourceID;
 
-    public function setResourceId(string $resourceID): AbstractModel
+    public function setResourceId(string $resourceID): self
     {
         $this->resourceID = $resourceID;
+
         return $this;
     }
 

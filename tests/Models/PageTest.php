@@ -3,11 +3,10 @@
 namespace Tests\Models;
 
 use Tests\VmgTestBase;
-use VirginMoneyGivingAPI\Models\Fundraiser;
 use VirginMoneyGivingAPI\Models\Page;
 
-class PageTest extends VmgTestBase {
-
+class PageTest extends VmgTestBase
+{
     public function testFundraisingDate()
     {
         $fundraiser = new Page();

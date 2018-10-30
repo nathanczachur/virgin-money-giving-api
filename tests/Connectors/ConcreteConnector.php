@@ -5,11 +5,9 @@ namespace Tests\Connectors;
 use VirginMoneyGivingAPI\AbstractVmgConnector;
 
 /**
- * Class ConcreteConnector
+ * Class ConcreteConnector.
  *
  * This is used to test the base connector methods.
- *
- * @package tests
  */
 class ConcreteConnector extends AbstractVmgConnector
 {

@@ -8,11 +8,9 @@ use VirginMoneyGivingAPI\Models\ModelInterface;
  * Bundles together the shared stuff that all 'create' requests do.
  *
  * Class AbstractCreateResponse
- *
- * @package VirginMoneyGivingAPI\Responses
  */
-abstract class AbstractCreateResponse implements CreateResponseInterface {
-
+abstract class AbstractCreateResponse implements CreateResponseInterface
+{
     /**
      * @var \VirginMoneyGivingAPI\Models\ModelInterface
      */

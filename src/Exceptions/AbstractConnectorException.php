@@ -14,7 +14,7 @@ abstract class AbstractConnectorException extends \Exception implements Exceptio
 
     protected $inputDetails;
 
-    public function __construct(string $message = "", int $code = 0, \Throwable $previous = null, $responseBody = null)
+    public function __construct(string $message = '', int $code = 0, \Throwable $previous = null, $responseBody = null)
     {
         parent::__construct($message, $code, $previous);
 

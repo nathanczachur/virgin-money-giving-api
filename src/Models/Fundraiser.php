@@ -6,8 +6,6 @@ namespace VirginMoneyGivingAPI\Models;
  * Class Fundraiser.
  *
  * The Fundraiser account as deinfied here: https://developer.virginmoneygiving.com/docs/read/Create_Fundraiser_Account
- *
- * @package VirginMoneyGivingAPI\Models
  */
 class Fundraiser extends AbstractModel
 {
@@ -99,7 +97,7 @@ class Fundraiser extends AbstractModel
      *
      * @return Fundraiser
      */
-    public function setTitle(string $title): Fundraiser
+    public function setTitle(string $title): self
     {
         $allowed_values = [
             'Mr', 'Mrs', 'Ms', 'Miss', 'Dr', 'Prof',
@@ -108,6 +106,7 @@ class Fundraiser extends AbstractModel
             throw new \Exception('The title must be one of Mr, Mrs, Ms, Miss, Dr, Prof.');
         }
         $this->title = $this->convertAccentedCharacters($title);
+
         return $this;
     }
 
@@ -124,16 +123,18 @@ class Fundraiser extends AbstractModel
      *
      * @return Fundraiser
      */
-    public function setForename(string $forename): Fundraiser
+    public function setForename(string $forename): self
     {
         $this->forename = $this->convertAccentedCharacters($forename);
+
         return $this;
     }
 
     /**
      * @return string
      */
-    public function getSurname(): string {
+    public function getSurname(): string
+    {
         return $this->surname;
     }
 
@@ -142,9 +143,10 @@ class Fundraiser extends AbstractModel
      *
      * @return Fundraiser
      */
-    public function setSurname(string $surname): Fundraiser
+    public function setSurname(string $surname): self
     {
         $this->surname = $this->convertAccentedCharacters($surname);
+
         return $this;
     }
 
@@ -161,9 +163,10 @@ class Fundraiser extends AbstractModel
      *
      * @return Fundraiser
      */
-    public function setAddressLine1(string $addressLine1): Fundraiser
+    public function setAddressLine1(string $addressLine1): self
     {
         $this->addressLine1 = $this->convertAccentedCharacters($addressLine1);
+
         return $this;
     }
 
@@ -180,9 +183,10 @@ class Fundraiser extends AbstractModel
      *
      * @return Fundraiser
      */
-    public function setAddressLine2(string $addressLine2): Fundraiser
+    public function setAddressLine2(string $addressLine2): self
     {
         $this->addressLine2 = $this->convertAccentedCharacters($addressLine2);
+
         return $this;
     }
 
@@ -199,9 +203,10 @@ class Fundraiser extends AbstractModel
      *
      * @return Fundraiser
      */
-    public function setTownCity(string $townCity): Fundraiser
+    public function setTownCity(string $townCity): self
     {
         $this->townCity = $this->convertAccentedCharacters($townCity);
+
         return $this;
     }
 
@@ -218,9 +223,10 @@ class Fundraiser extends AbstractModel
      *
      * @return Fundraiser
      */
-    public function setCountyState(string $countyState): Fundraiser
+    public function setCountyState(string $countyState): self
     {
         $this->countyState = $this->convertAccentedCharacters($countyState);
+
         return $this;
     }
 
@@ -235,10 +241,11 @@ class Fundraiser extends AbstractModel
     /**
      * @param string $postcode
      *
-     * @return \VirginMoneyGivingAPI\Models\Fundraiser
      * @throws \Exception
+     *
+     * @return \VirginMoneyGivingAPI\Models\Fundraiser
      */
-    public function setPostcode(string $postcode): Fundraiser
+    public function setPostcode(string $postcode): self
     {
         // Guard against invalid postcodes
         if (!preg_match('/([Gg][Ii][Rr] 0[Aa]{2})|((([A-Za-z][0-9]{1,2})|(([A-Za-z][A-Ha-hJ-Yj-y][0-9]{1,2})|(([A-Za-z][0-9][A-Za-z])|([A-Za-z][A-Ha-hJ-Yj-y][0-9]?[A-Za-z]))))\s?[0-9][A-Za-z]{2})/', $postcode)) {
@@ -263,9 +270,10 @@ class Fundraiser extends AbstractModel
      *
      * @return Fundraiser
      */
-    public function setCountryCode(string $countryCode): Fundraiser
+    public function setCountryCode(string $countryCode): self
     {
         $this->countryCode = $this->convertAccentedCharacters($countryCode);
+
         return $this;
     }
 
@@ -280,10 +288,11 @@ class Fundraiser extends AbstractModel
     /**
      * @param string $preferredTelephone
      *
-     * @return \VirginMoneyGivingAPI\Models\Fundraiser
      * @throws \Exception
+     *
+     * @return \VirginMoneyGivingAPI\Models\Fundraiser
      */
-    public function setPreferredTelephone(string $preferredTelephone): Fundraiser
+    public function setPreferredTelephone(string $preferredTelephone): self
     {
         if (!preg_match('/^\d+$/', $preferredTelephone)) {
             throw new \Exception('The phone number must only contain numbers.');
@@ -292,6 +301,7 @@ class Fundraiser extends AbstractModel
             throw new \Exception('The phone number must be 16 characters or less.');
         }
         $this->preferredTelephone = $this->convertAccentedCharacters($preferredTelephone);
+
         return $this;
     }
 
@@ -306,15 +316,17 @@ class Fundraiser extends AbstractModel
     /**
      * @param string $emailAddress
      *
-     * @return \VirginMoneyGivingAPI\Models\Fundraiser
      * @throws \Exception
+     *
+     * @return \VirginMoneyGivingAPI\Models\Fundraiser
      */
-    public function setEmailAddress(string $emailAddress): Fundraiser
+    public function setEmailAddress(string $emailAddress): self
     {
         if (!filter_var($emailAddress, FILTER_VALIDATE_EMAIL)) {
             throw new \Exception('The email address must be in a valid format according to FILTER_VALIDATE_EMAIL.');
         }
         $this->emailAddress = $this->convertAccentedCharacters($emailAddress);
+
         return $this;
     }
 
@@ -331,9 +343,10 @@ class Fundraiser extends AbstractModel
      *
      * @return Fundraiser
      */
-    public function setPersonalUrl(string $personalUrl): Fundraiser
+    public function setPersonalUrl(string $personalUrl): self
     {
         $this->personalUrl = $this->convertAccentedCharacters($personalUrl);
+
         return $this;
     }
 
@@ -348,15 +361,17 @@ class Fundraiser extends AbstractModel
     /**
      * @param string $termsAndConditionsAccepted
      *
-     * @return \VirginMoneyGivingAPI\Models\Fundraiser
      * @throws \Exception
+     *
+     * @return \VirginMoneyGivingAPI\Models\Fundraiser
      */
-    public function setTermsAndConditionsAccepted(string $termsAndConditionsAccepted): Fundraiser
+    public function setTermsAndConditionsAccepted(string $termsAndConditionsAccepted): self
     {
         if ($termsAndConditionsAccepted != 'N' && $termsAndConditionsAccepted != 'Y') {
             throw new \Exception('Terms and conditions must be Y/N.');
         }
         $this->termsAndConditionsAccepted = $termsAndConditionsAccepted;
+
         return $this;
     }
 
@@ -371,15 +386,17 @@ class Fundraiser extends AbstractModel
     /**
      * @param string $dateOfBirth in YYYYMMDD format
      *
-     * @return \VirginMoneyGivingAPI\Models\Fundraiser
      * @throws \Exception
+     *
+     * @return \VirginMoneyGivingAPI\Models\Fundraiser
      */
-    public function setDateOfBirth(string $dateOfBirth): Fundraiser
+    public function setDateOfBirth(string $dateOfBirth): self
     {
-        if (!preg_match("/^[0-9]{4}(0[1-9]|1[0-2])(0[1-9]|[1-2][0-9]|3[0-1])$/", $dateOfBirth)) {
+        if (!preg_match('/^[0-9]{4}(0[1-9]|1[0-2])(0[1-9]|[1-2][0-9]|3[0-1])$/', $dateOfBirth)) {
             throw new \Exception('Date of birth must be in YYYYMMDD format.');
         }
         $this->dateOfBirth = $dateOfBirth;
+
         return $this;
     }
 
@@ -396,9 +413,10 @@ class Fundraiser extends AbstractModel
      *
      * @return Fundraiser
      */
-    public function setAccessToken($accessToken): Fundraiser
+    public function setAccessToken($accessToken): self
     {
         $this->accessToken = ($accessToken) ? $accessToken : null;
+
         return $this;
     }
 }

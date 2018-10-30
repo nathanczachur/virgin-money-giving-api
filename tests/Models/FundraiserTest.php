@@ -5,8 +5,8 @@ namespace Tests\Models;
 use Tests\VmgTestBase;
 use VirginMoneyGivingAPI\Models\Fundraiser;
 
-class FundraiserTest extends VmgTestBase {
-
+class FundraiserTest extends VmgTestBase
+{
     public function testTitle()
     {
         $fundraiser = new Fundraiser();
@@ -31,7 +31,7 @@ class FundraiserTest extends VmgTestBase {
     {
         // Set exception expectations
         $this->expectException(\ArgumentCountError::class);
-        $this->expectExceptionMessage('Too few arguments to function ' . Fundraiser::class .'::setPostcode()');
+        $this->expectExceptionMessage('Too few arguments to function '.Fundraiser::class.'::setPostcode()');
 
         // Set up test
         $fundraiser = new Fundraiser();

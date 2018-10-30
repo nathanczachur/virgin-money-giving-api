@@ -2,7 +2,6 @@
 
 namespace VirginMoneyGivingAPI\Models;
 
-
 interface ModelInterface
 {
     public function setResourceId(string $resourceID);
